@@ -42,7 +42,7 @@
                 'ng-show="editMode" ' +
                 'ng-keyup="onInputKeyup($event)" ' +
                 'ng-model="inputValue" ' +
-                'maxlength="{{maxLength}}" '
+                'maxlength="{{maxLength}}" ' +
                 'placeholder="{{placeholder}}" />');
 
             var innerContainer = angular.element(
