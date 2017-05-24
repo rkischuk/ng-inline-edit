@@ -1,6 +1,6 @@
 /**
- * ng-inline-edit v0.7.0 (http://tamerayd.in/ng-inline-edit)
- * Copyright 2015 Tamer Aydin (http://tamerayd.in)
+ * ng-inline-edit v0.7.1 (http://tamerayd.in/ng-inline-edit)
+ * Copyright 2017 Tamer Aydin (http://tamerayd.in)
  * Licensed under MIT
  */
 (function(window, angular, undefined) {
@@ -166,6 +166,7 @@
           link: function(scope, element, attrs) {
             scope.model = scope.$parent.$eval(attrs.inlineEdit);
             scope.isInputTextarea = attrs.hasOwnProperty('inlineEditTextarea');
+            scope.maxLength = attrs.hasOwnProperty('inlineMaxLength') ? attrs.inlineMaxLength : '';
 
             var onBlurBehavior = attrs.hasOwnProperty('inlineEditOnBlur') ?
               attrs.inlineEditOnBlur : InlineEditConfig.onBlur;
@@ -188,6 +189,7 @@
                 'ng-show="editMode" ' +
                 'ng-keyup="onInputKeyup($event)" ' +
                 'ng-model="inputValue" ' +
+                'maxlength="{{maxLength}}" '
                 'placeholder="{{placeholder}}" />');
 
             var innerContainer = angular.element(

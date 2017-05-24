@@ -19,6 +19,7 @@
           link: function(scope, element, attrs) {
             scope.model = scope.$parent.$eval(attrs.inlineEdit);
             scope.isInputTextarea = attrs.hasOwnProperty('inlineEditTextarea');
+            scope.maxLength = attrs.hasOwnProperty('inlineMaxLength') ? attrs.inlineMaxLength : '';
 
             var onBlurBehavior = attrs.hasOwnProperty('inlineEditOnBlur') ?
               attrs.inlineEditOnBlur : InlineEditConfig.onBlur;
@@ -41,6 +42,7 @@
                 'ng-show="editMode" ' +
                 'ng-keyup="onInputKeyup($event)" ' +
                 'ng-model="inputValue" ' +
+                'maxlength="{{maxLength}}" '
                 'placeholder="{{placeholder}}" />');
 
             var innerContainer = angular.element(
